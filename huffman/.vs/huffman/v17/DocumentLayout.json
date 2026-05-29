@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\C\u8BED\u8A00\\huffman\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|D:\\C\u8BED\u8A00\\huffman\\huffman_core.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|solutionrelative:huffman_core.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|D:\\C\u8BED\u8A00\\huffman\\compressor.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|solutionrelative:compressor.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|D:\\C\u8BED\u8A00\\huffman\\huffman_types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|solutionrelative:huffman_types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|D:\\C\u8BED\u8A00\\huffman\\huffman_core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|solutionrelative:huffman_core.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|D:\\C\u8BED\u8A00\\huffman\\compressor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|solutionrelative:compressor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|D:\\C\u8BED\u8A00\\huffman\\archive.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|solutionrelative:archive.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|D:\\C\u8BED\u8A00\\huffman\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|D:\\C\u8BED\u8A00\\huffman\\archive.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CC3DCAE-B06A-4F96-AE92-EF0119FE2716}|huffman.vcxproj|solutionrelative:archive.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "archive.h",
+              "DocumentMoniker": "D:\\C\u8BED\u8A00\\huffman\\archive.h",
+              "RelativeDocumentMoniker": "archive.h",
+              "ToolTip": "D:\\C\u8BED\u8A00\\huffman\\archive.h",
+              "RelativeToolTip": "archive.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-07T12:04:49.679Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "huffman_core.c",
+              "DocumentMoniker": "D:\\C\u8BED\u8A00\\huffman\\huffman_core.c",
+              "RelativeDocumentMoniker": "huffman_core.c",
+              "ToolTip": "D:\\C\u8BED\u8A00\\huffman\\huffman_core.c",
+              "RelativeToolTip": "huffman_core.c",
+              "ViewState": "AgIAADgAAAAAAAAAAAAiwFgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-05-07T12:05:39.652Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "main.c",
+              "DocumentMoniker": "D:\\C\u8BED\u8A00\\huffman\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "D:\\C\u8BED\u8A00\\huffman\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAiwI8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-05-07T12:07:58.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "archive.c",
+              "DocumentMoniker": "D:\\C\u8BED\u8A00\\huffman\\archive.c",
+              "RelativeDocumentMoniker": "archive.c",
+              "ToolTip": "D:\\C\u8BED\u8A00\\huffman\\archive.c",
+              "RelativeToolTip": "archive.c",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAiwGYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-05-07T12:07:16.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "compressor.c",
+              "DocumentMoniker": "D:\\C\u8BED\u8A00\\huffman\\compressor.c",
+              "RelativeDocumentMoniker": "compressor.c",
+              "ToolTip": "D:\\C\u8BED\u8A00\\huffman\\compressor.c",
+              "RelativeToolTip": "compressor.c",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAiwIEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-05-07T12:06:41.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "compressor.h",
+              "DocumentMoniker": "D:\\C\u8BED\u8A00\\huffman\\compressor.h",
+              "RelativeDocumentMoniker": "compressor.h",
+              "ToolTip": "D:\\C\u8BED\u8A00\\huffman\\compressor.h",
+              "RelativeToolTip": "compressor.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-07T12:04:03.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "huffman_core.h",
+              "DocumentMoniker": "D:\\C\u8BED\u8A00\\huffman\\huffman_core.h",
+              "RelativeDocumentMoniker": "huffman_core.h",
+              "ToolTip": "D:\\C\u8BED\u8A00\\huffman\\huffman_core.h",
+              "RelativeToolTip": "huffman_core.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-07T12:03:14.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "huffman_types.h",
+              "DocumentMoniker": "D:\\C\u8BED\u8A00\\huffman\\huffman_types.h",
+              "RelativeDocumentMoniker": "huffman_types.h",
+              "ToolTip": "D:\\C\u8BED\u8A00\\huffman\\huffman_types.h",
+              "RelativeToolTip": "huffman_types.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-07T12:02:41.438Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
