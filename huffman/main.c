@@ -1,9 +1,9 @@
 #include "huffman_types.h"
 #include "compressor.h"
 #include "archive.h"
-#include <time.h> // ¡¾ĞÂÔö¡¿£ºÒıÈë C ÓïÑÔ±ê×¼Ê±¼ä¿â
+#include <time.h> // ã€æ–°å¢ã€‘ï¼šå¼•å…¥ C è¯­è¨€æ ‡å‡†æ—¶é—´åº“
 
-// µİ¹é´¦ÀíÄ¿Â¼ÓëÍ¨Åä·ûÒıÇæ
+// é€’å½’å¤„ç†ç›®å½•ä¸é€šé…ç¬¦å¼•æ“
 static void processPath(AppConfig* config, const char* path) {
     struct _stat s;
     if (_stat(path, &s) == 0) {
@@ -33,10 +33,24 @@ static void processPath(AppConfig* config, const char* path) {
         struct _finddata_t fileinfo;
         intptr_t handle = _findfirst(path, &fileinfo);
         if (handle != -1) {
+            // ã€æ–°å¢é€»è¾‘ã€‘ï¼šæ™ºèƒ½æå–é€šé…ç¬¦å‰é¢çš„ç›®å½•è·¯å¾„
+            char dirPrefix[MAX_PATH_LEN] = {0};
+            const char* lastSlash = strrchr(path, '\\');
+            const char* lastSlashFwd = strrchr(path, '/');
+            if (lastSlashFwd > lastSlash) lastSlash = lastSlashFwd; // å…¼å®¹æ­£åæ–œæ 
+            
+            if (lastSlash) {
+                // æˆªå–è·¯å¾„å‰ç¼€ï¼Œä¾‹å¦‚æŠŠ "src\*.c" æˆªå–ä¸º "src\"
+                strncpy(dirPrefix, path, lastSlash - path + 1); 
+            }
+
             do {
                 if (!(fileinfo.attrib & _A_SUBDIR)) {
                     if (config->fileCount < MAX_FILES) {
-                        config->inputFiles[config->fileCount++] = _strdup(fileinfo.name);
+                        // ã€æ–°å¢é€»è¾‘ã€‘ï¼šå°†å‰ç¼€å’Œçº¯æ–‡ä»¶åé‡æ–°ç¼åˆï¼
+                        char fullPath[MAX_PATH_LEN];
+                        snprintf(fullPath, sizeof(fullPath), "%s%s", dirPrefix, fileinfo.name);
+                        config->inputFiles[config->fileCount++] = _strdup(fullPath);
                     }
                 }
             } while (_findnext(handle, &fileinfo) == 0);
@@ -69,11 +83,11 @@ static void cleanupAppConfig(AppConfig* config) {
 int main(int argc, char* argv[]) {
     if (argc < 3) {
         printf("========================================================\n");
-        printf("  ¸ß¼¶ÎÄ¼şÑ¹Ëõ¹ÜÀíÏµÍ³ (´ø Benchmark ĞÔÄÜ¼à¿Ø°æ)        \n");
+        printf("  é«˜çº§æ–‡ä»¶å‹ç¼©ç®¡ç†ç³»ç»Ÿ (å¸¦ Benchmark æ€§èƒ½ç›‘æ§ç‰ˆ)        \n");
         printf("========================================================\n");
-        printf(" Ê¹ÓÃËµÃ÷£º\n");
-        printf("  [Ñ¹Ëõ] : %s compress <Êä³ö.huf> <ÎÄ¼ş¼ĞÃû> <ÎÄ¼ş1>\n", argv[0]);
-        printf("  [½âÑ¹] : %s decompress <Ñ¹Ëõ°ü.huf>\n", argv[0]);
+        printf(" ä½¿ç”¨è¯´æ˜ï¼š\n");
+        printf("  [å‹ç¼©] : %s compress <è¾“å‡º.huf> <æ–‡ä»¶å¤¹å> <æ–‡ä»¶1>\n", argv[0]);
+        printf("  [è§£å‹] : %s decompress <å‹ç¼©åŒ….huf>\n", argv[0]);
         return 1;
     }
 
@@ -85,58 +99,58 @@ int main(int argc, char* argv[]) {
     initAppConfig(&sysConfig, argc, argv);
 
     if (strcmp(mode, "compress") == 0) {
-        if (sysConfig.fileCount == 0) { printf("[´íÎó] Î´ÕÒµ½ÈÎºÎ·ûºÏÌõ¼şµÄÎÄ¼ş¡£\n"); return 1; }
+        if (sysConfig.fileCount == 0) { printf("[é”™è¯¯] æœªæ‰¾åˆ°ä»»ä½•ç¬¦åˆæ¡ä»¶çš„æ–‡ä»¶ã€‚\n"); return 1; }
 
-        printf("[ÏµÍ³] ×¼±¸½¨Á¢Êı¾İ¿ìÕÕ (°üº¬ %d ¸öµ×²ãÎÄ¼ş)...\n", sysConfig.fileCount);
+        printf("[ç³»ç»Ÿ] å‡†å¤‡å»ºç«‹æ•°æ®å¿«ç…§ (åŒ…å« %d ä¸ªåº•å±‚æ–‡ä»¶)...\n", sysConfig.fileCount);
         int validFiles = createTarball(sysConfig.fileCount, sysConfig.inputFiles, tempName);
 
         if (validFiles == 0) {
-            printf("[´íÎó] Ã»ÓĞÕÒµ½ÊµÌåÎÄ¼ş£¬Ñ¹ËõÖĞÖ¹¡£\n");
+            printf("[é”™è¯¯] æ²¡æœ‰æ‰¾åˆ°å®ä½“æ–‡ä»¶ï¼Œå‹ç¼©ä¸­æ­¢ã€‚\n");
             remove(tempName);
             cleanupAppConfig(&sysConfig);
             return 1;
         }
 
-        printf("[ÏµÍ³] Æô¶¯¹ş·òÂü¸ßËÙÑ¹ËõÒıÇæ...\n");
+        printf("[ç³»ç»Ÿ] å¯åŠ¨å“ˆå¤«æ›¼é«˜é€Ÿå‹ç¼©å¼•æ“...\n");
 
-        // ================= ¡¾ĞÂÔö¼ÆÊ±ºËĞÄ¡¿ =================
-        clock_t start_time = clock(); // ¼ÇÂ¼¿ªÊ¼Ê±¼ä
+        // ================= ã€æ–°å¢è®¡æ—¶æ ¸å¿ƒã€‘ =================
+        clock_t start_time = clock(); // è®°å½•å¼€å§‹æ—¶é—´
 
-        encodeStream(tempName, archiveName); // Ö´ĞĞºËĞÄÑ¹Ëõ
+        encodeStream(tempName, archiveName); // æ‰§è¡Œæ ¸å¿ƒå‹ç¼©
 
-        clock_t end_time = clock();   // ¼ÇÂ¼½áÊøÊ±¼ä
-        double time_spent = (double)(end_time - start_time) / CLOCKS_PER_SEC; // ¼ÆËãÃëÊı
+        clock_t end_time = clock();   // è®°å½•ç»“æŸæ—¶é—´
+        double time_spent = (double)(end_time - start_time) / CLOCKS_PER_SEC; // è®¡ç®—ç§’æ•°
         // ====================================================
 
         remove(tempName);
         printf("--------------------------------------------------------\n");
-        printf("[³É¹¦] µµ°¸Éú³ÉÍê±Ï£¡ -> %s\n", archiveName);
-        printf("[ĞÔÄÜ] ºËĞÄÑ¹ËõºÄÊ± : %.3f Ãë\n", time_spent); // ´òÓ¡µ½¿ØÖÆÌ¨
+        printf("[æˆåŠŸ] æ¡£æ¡ˆç”Ÿæˆå®Œæ¯•ï¼ -> %s\n", archiveName);
+        printf("[æ€§èƒ½] æ ¸å¿ƒå‹ç¼©è€—æ—¶ : %.3f ç§’\n", time_spent); // æ‰“å°åˆ°æ§åˆ¶å°
         printf("--------------------------------------------------------\n");
     }
     else if (strcmp(mode, "decompress") == 0) {
-        printf("[ÏµÍ³] Æô¶¯¹ş·òÂüÁ÷½âÂëÓëÖØ½¨»úÖÆ...\n");
+        printf("[ç³»ç»Ÿ] å¯åŠ¨å“ˆå¤«æ›¼æµè§£ç ä¸é‡å»ºæœºåˆ¶...\n");
 
-        // ================= ¡¾ĞÂÔö¼ÆÊ±ºËĞÄ¡¿ =================
-        clock_t start_time = clock(); // ¼ÇÂ¼¿ªÊ¼Ê±¼ä
+        // ================= ã€æ–°å¢è®¡æ—¶æ ¸å¿ƒã€‘ =================
+        clock_t start_time = clock(); // è®°å½•å¼€å§‹æ—¶é—´
 
-        decodeStream(archiveName, tempName); // Ö´ĞĞºËĞÄ½âÑ¹
+        decodeStream(archiveName, tempName); // æ‰§è¡Œæ ¸å¿ƒè§£å‹
 
-        clock_t end_time = clock();   // ¼ÇÂ¼½áÊøÊ±¼ä
-        double time_spent = (double)(end_time - start_time) / CLOCKS_PER_SEC; // ¼ÆËãÃëÊı
+        clock_t end_time = clock();   // è®°å½•ç»“æŸæ—¶é—´
+        double time_spent = (double)(end_time - start_time) / CLOCKS_PER_SEC; // è®¡ç®—ç§’æ•°
         // ====================================================
 
-        printf("[ÏµÍ³] ÕıÔÚ°´Ô­Ê¼Ä¿Â¼Ê÷·ÖÀëÊµÌåÎÄ¼ş...\n");
+        printf("[ç³»ç»Ÿ] æ­£åœ¨æŒ‰åŸå§‹ç›®å½•æ ‘åˆ†ç¦»å®ä½“æ–‡ä»¶...\n");
         extractTarball(tempName);
 
         remove(tempName);
         printf("--------------------------------------------------------\n");
-        printf("[³É¹¦] È«²¿ÎÄ¼ş¼°Ä¿Â¼½á¹¹½âÑ¹Íê±Ï£¡\n");
-        printf("[ĞÔÄÜ] ºËĞÄ½âÑ¹ºÄÊ± : %.3f Ãë\n", time_spent); // ´òÓ¡µ½¿ØÖÆÌ¨
+        printf("[æˆåŠŸ] å…¨éƒ¨æ–‡ä»¶åŠç›®å½•ç»“æ„è§£å‹å®Œæ¯•ï¼\n");
+        printf("[æ€§èƒ½] æ ¸å¿ƒè§£å‹è€—æ—¶ : %.3f ç§’\n", time_spent); // æ‰“å°åˆ°æ§åˆ¶å°
         printf("--------------------------------------------------------\n");
     }
     else {
-        printf("[´íÎó] Î´ÖªÃüÁî¡£\n");
+        printf("[é”™è¯¯] æœªçŸ¥å‘½ä»¤ã€‚\n");
     }
 
     cleanupAppConfig(&sysConfig);
